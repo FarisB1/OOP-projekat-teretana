@@ -56,6 +56,9 @@ void Teretana::ucitajIzFajla() {
         } else if (pak == "Mjesecna") {
             pakett = 4;
         }
+
+        int brKartice = std::stoi(words[7]);
+
         Osoba a;
         a.setIme(ime);
         a.setPrezime(prezime);
@@ -68,16 +71,99 @@ void Teretana::ucitajIzFajla() {
         e.setClanarina(true);
         e.setPaket(static_cast<Paket>(pakett));
         e.setCijena();
+        e.setBrKartice(brKartice);
+        e.odjava();
         this->korisnici.push_back(e);
     }
     inputFile.close();
 }
 
 void Teretana::ispisiKorisinke() {
-    std::cout << "+-----------------+-----------------+-------+-----------------+-----------------+----------------------+---------------------------+" << std::endl;
-    std::cout << "|      Ime        |      Prezime    | Godine|   Br Telefona   | Datum Rodjenja  |       Paket          | Datum Uclanjivanja        |" << std::endl;
-    std::cout << "+-----------------+-----------------+-------+-----------------+-----------------+----------------------+---------------------------+" << std::endl;
+    std::cout << "+-----------------+-----------------+-------+-----------------+-----------------+----------------------+---------------------------+---------------------------+" << std::endl;
+    std::cout << "|      Ime        |      Prezime    | Godine|   Br Telefona   | Datum Rodjenja  |       Paket          |      Br Kartice           | Datum Uclanjivanja        |" << std::endl;
+    std::cout << "+-----------------+-----------------+-------+-----------------+-----------------+----------------------+---------------------------+---------------------------+" << std::endl;
         for (auto& korisnik : this->korisnici) {
             std::cout << korisnik;
         }
+}
+
+void Teretana::stanjeTeretane() {
+    std::cout << "\nSTANJE TERETANE\n\n";
+
+    int brojPrisutnih = 0;
+
+    for(int i=0; i<korisnici.size(); i++) {
+        if(korisnici[i].JePrisutan()) {
+            brojPrisutnih++;
+        }
+    }
+
+    std::cout << "Trenutno prisutni clanovi: " << brojPrisutnih << std::endl;
+    std::cout << "Broj svlacionica: " << brOrmarica << std::endl;
+
+
+    if(brojPrisutnih > brOrmarica) {
+        std::cout << "UPOZORENJE: Svlacionice su popunjene!" << std::endl;
+    }
+
+    std::cout << "\n";
+}
+
+void Teretana::dajKljuc() {
+    int a;
+    std::cout<<"Unesite ID kartice: ";
+    std::cin>>a;
+    std::cin.ignore();
+    for(auto &korisnik:this->korisnici){
+        if(a==korisnik.getBrKartice() && !korisnik.JePrisutan()) {
+            if (this->brZauzetih >= brOrmarica){
+                std::cout << "Svi ormarici su zauzeti.";
+                return;
+            }
+            korisnik.prijava();
+            this->brZauzetih++;
+            int kljuc;
+            srand(time(NULL));
+            rand();
+            kljuc=rand()%30+1;
+            this->kljucevi.push_back(kljuc);
+        }
+        else{
+            std::cout<<"Unesite validan ID kartice.\n";
+        }
+    }
+}
+
+void Teretana::ispisOrmarica() {
+    int ormaric[30] = {0};
+
+    for (auto& kljuc : this->kljucevi) {
+        if (kljuc >= 1 && kljuc <= 30) {
+            ormaric[kljuc - 1] = 1;
+        }
+    }
+
+    std::cout << "Ormarici:\n";
+    for (int i = 0; i < 30; i += 5) {
+        for (int j = 0; j < 5; ++j) {
+            std::cout << "+---------+\t";
+        }
+        std::cout << "\n";
+        for (int j = 0; j < 5; ++j) {
+            std::cout << "|    " << (i + j + 1) << ((i + j + 1)<10 ? "    |\t" : "   |\t");
+        }
+        std::cout << "\n";
+        for (int j = 0; j < 5; ++j) {
+            std::cout << "| " << (ormaric[i + j] == 1 ? "Zauzeto" : "       ") << " |\t";
+        }
+        std::cout << "\n";
+        for (int j = 0; j < 5; ++j) {
+            std::cout << "+---------+\t";
+        }
+        std::cout << "\n";
+    }
+}
+
+void Teretana::uzmiKljuc() {
+
 }
