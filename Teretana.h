@@ -27,6 +27,10 @@ public:
     Teretana(){
         brZauzetih = 0;
     }
+
+    void dodajKorisnika();
+    void produziClanarinu();
+    void provjeriClanarinu();
 };
 
 #endif //PROJEKAT_TERETANA_H

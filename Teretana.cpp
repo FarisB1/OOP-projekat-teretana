@@ -99,8 +99,8 @@ void Teretana::stanjeTeretane() {
     }
 
     std::cout << "Trenutno prisutni clanovi: " << brojPrisutnih << std::endl;
-    std::cout << "Broj svlacionica: " << brOrmarica << std::endl;
-
+    std::cout << "Broj ormarica: " << brOrmarica << std::endl;
+    std::cout << "Broj slobodnih ormarica: "<< brOrmarica - brojPrisutnih << std::endl;
 
     if(brojPrisutnih > brOrmarica) {
         std::cout << "UPOZORENJE: Svlacionice su popunjene!" << std::endl;
@@ -114,23 +114,38 @@ void Teretana::dajKljuc() {
     std::cout<<"Unesite ID kartice: ";
     std::cin>>a;
     std::cin.ignore();
+    bool pronadjen = false;
     for(auto &korisnik:this->korisnici){
         if(a==korisnik.getBrKartice() && !korisnik.JePrisutan()) {
             if (this->brZauzetih >= brOrmarica){
-                std::cout << "Svi ormarici su zauzeti.";
+                std::cout << "Svi ormarici su zauzeti.\n";
                 return;
             }
             korisnik.prijava();
             this->brZauzetih++;
             int kljuc;
+            pronadjen = true;
             srand(time(NULL));
             rand();
-            kljuc=rand()%30+1;
+
+            bool ima = false;
+            do{
+                kljuc=rand()%30+1;
+                for (auto &nizKljuceva:kljucevi){
+                    if (kljuc == nizKljuceva)
+                    {
+                        ima = true;
+                        break;
+                    }
+                }
+            }while(ima);
+
+            korisnik.setKljuc(kljuc);
             this->kljucevi.push_back(kljuc);
         }
-        else{
-            std::cout<<"Unesite validan ID kartice.\n";
-        }
+    }
+    if (!pronadjen){
+        std::cout<<"ID kartice nije validan.\n";
     }
 }
 
@@ -150,7 +165,7 @@ void Teretana::ispisOrmarica() {
         }
         std::cout << "\n";
         for (int j = 0; j < 5; ++j) {
-            std::cout << "|    " << (i + j + 1) << ((i + j + 1)<10 ? "    |\t" : "   |\t");
+            std::cout << "|    " << (i+j+1) << ((i+j+1)<10 ? "    |\t" : "   |\t");
         }
         std::cout << "\n";
         for (int j = 0; j < 5; ++j) {
@@ -165,5 +180,42 @@ void Teretana::ispisOrmarica() {
 }
 
 void Teretana::uzmiKljuc() {
+    int a;
+    ispisOrmarica();
+    std::cout<<"Unesite ID kljuca: ";
+    std::cin>>a;
+    bool pronadjen = false;
+    int indeks = -1;
+    this->brZauzetih--;
+    for (int i = 0; i < this->kljucevi.size(); i++){
+        if (this->kljucevi[i] == a){
+            pronadjen = true;
+            indeks = i;
+            break;
+        }
+    }
 
+    if (pronadjen){
+        this->kljucevi.erase(this->kljucevi.begin() + indeks);
+        for(auto &korisnik : this->korisnici)
+        {
+            if (korisnik.getKljuc() == a)
+            {
+                std::cout<<korisnik;
+                korisnik.removeKljuc();
+                korisnik.odjava();
+                break;
+            }
+        }
+    }
+    if (!pronadjen){
+        std::cout<<"Kljuc nije validan.\n";
+    }
+}
+
+void Teretana::dodajKorisnika(){
+    Korisnik temp;
+    temp.postaviKorisnika();
+    this->korisnici.push_back(temp);
+    std::cin.ignore();
 }
