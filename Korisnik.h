@@ -16,14 +16,23 @@ private:
     Paket paket;
     float cijena;
     Datum datumIsteka;
-
+    bool jePrisutan;
+    int brKartice;
+    int kljuc;
 public:
+    bool JePrisutan();
+    void prijava();
+    void odjava();
+
     Osoba &getKorisnici();
     Paket getPaket();
     bool isClanarina();
     Datum &getDatumUclanjivanja();
     float getCijena();
+    int getBrKartice();
 
+    void setBrKartice();
+    void setBrKartice(int a);
     void setKorisnik();
     void setDatumUclanjivanja();
     void setClanarina();
@@ -43,7 +52,9 @@ public:
     ~Korisnik(){};
     friend std::ostream& operator<<(std::ostream &stream, Korisnik& a);
 
-
+    int getKljuc();
+    void setKljuc(int a);
+    void removeKljuc();
 };
 
 

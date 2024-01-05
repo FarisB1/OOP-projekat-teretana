@@ -4,11 +4,13 @@
 
 #include <iostream>
 #include <chrono>
+#include <cstdlib>
 #include <fstream>
 #include <cstring>
 #include <iomanip>
 #include "Korisnik.h"
 #include "Datum.h"
+#include <ctime>
 
 Osoba &Korisnik::getKorisnici(){
     return this->korisnik;
@@ -30,8 +32,34 @@ void Korisnik::setKorisnik() {
     Osoba a;
     a.postaviOsobu();
     this->korisnik = a;
+    this->setBrKartice();
 }
 
+int Korisnik::getBrKartice() {
+    return this->brKartice;
+}
+
+void Korisnik::setBrKartice() {
+    srand(time(NULL));
+    rand();
+    this->brKartice = rand()%90000 + 10000;
+}
+
+void Korisnik::setBrKartice(int a) {
+    this->brKartice = a;
+}
+
+int Korisnik::getKljuc(){
+    return this->kljuc;
+}
+
+void Korisnik::setKljuc(int a){
+    this->kljuc = a;
+}
+
+void Korisnik::removeKljuc() {
+    this->kljuc = 0;
+}
 
 void Korisnik::setDatumUclanjivanja() {
     time_t t = time(0);
@@ -78,7 +106,7 @@ void Korisnik::postaviKorisnika() {
     this->clanarina = true;
     this->setCijena();
     this->sacuvajUFajl();
-
+    this->jePrisutan = false;
     std::cout << "Korisnik uspjesno unesen!" << std::endl;
 }
 
@@ -110,7 +138,7 @@ void Korisnik::sacuvajUFajl(){
             break;
     }
     outFile << " ";
-    outFile<< this->datumUclanjivanja.getDan()<<"."<<this->datumUclanjivanja.getMjesec()<<"."<<this->datumUclanjivanja.getGodina();
+    outFile<< this->datumUclanjivanja.getDan()<<"."<<this->datumUclanjivanja.getMjesec()<<"."<<this->datumUclanjivanja.getGodina()<<" " << this->getBrKartice();
     outFile << "\n";
 
     outFile.close();
@@ -171,16 +199,17 @@ void Korisnik::provjeriValidnostClanarine() {
         std::cout << "Clanarina je jos uvijek validna." << std::endl;
     }
 }
-std::ostream& operator<<(std::ostream& stream, Korisnik& p){
-
+std::ostream& operator<<(std::ostream& stream, Korisnik& p) {
     stream << "| " << std::left << std::setw(15) << p.korisnik.getIme() << " | " << std::setw(15) << p.korisnik.getPrezime() << " | "
            << std::setw(5) << p.korisnik.getGodine() << " | " << std::setw(15) << p.korisnik.getBrTelefona() << " | "
            << std::setw(15) << p.korisnik.getDatumRodjenja().ispisiDatum2() << " | " << std::setw(20); p.ispisiPaket(); stream << " | "
-                                                                                                                               << std::setw(25) << p.getDatumUclanjivanja().ispisiDatum2() << " |" << std::endl;
-    stream << "+-----------------+-----------------+-------+-----------------+-----------------+----------------------+---------------------------+" << std::endl;
+           << std::setw(25) << p.getBrKartice() << " | "
+           << std::setw(25) << p.getDatumUclanjivanja().ispisiDatum2() << " |" << std::endl;
+    stream << "+-----------------+-----------------+-------+-----------------+-----------------+----------------------+---------------------------+---------------------------+" << std::endl;
 
     return stream;
 }
+
 
 void Korisnik::setKorisnik(Osoba& osoba){
     this->korisnik = osoba;
@@ -196,4 +225,17 @@ void Korisnik::setPaket(Paket paket){
 }
 void Korisnik::setCijena(float cijena){
     this->cijena = cijena;
+}
+
+bool Korisnik::JePrisutan() {
+    return this->jePrisutan;
+}
+
+
+void Korisnik::prijava() {
+    this->jePrisutan = true;
+}
+
+void Korisnik::odjava(){
+    this->jePrisutan = false;
 }
