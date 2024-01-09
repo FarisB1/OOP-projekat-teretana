@@ -13,4 +13,5 @@ add_executable(PROJEKAT main.cpp
         Datum.cpp
         Datum.h
         Osoba.cpp
-        Osoba.h)
+        Osoba.h
+        funkcije.h)

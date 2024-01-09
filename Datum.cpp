@@ -5,10 +5,10 @@
 #include <sstream>
 #include "Datum.h"
 
-Datum::Datum(int day, int month, int year) {
-    this->dan = day;
-    this->mjesec = month;
-    this->godina = year;
+Datum::Datum(int dan, int mjesec, int god) {
+    this->dan = dan;
+    this->mjesec = mjesec;
+    this->godina = god;
 }
 
 int Datum::getDan() {
@@ -109,39 +109,38 @@ void Datum::setMjesec(int a) {
     this->mjesec = a;
 }
 
-int Datum::daysInMonth(int month, int year) const {
-    switch (month) {
+int Datum::dani_u_mjesecu(int mjesec, int god) const {
+    switch (mjesec) {
         case 1: case 3: case 5: case 7: case 8: case 10: case 12:
             return 31;
         case 4: case 6: case 9: case 11:
             return 30;
         case 2:
-            return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0) ? 29 : 28;
+            return (god % 4 == 0 && god % 100 != 0) || (god % 400 == 0) ? 29 : 28;
         default:
-            return 0; // Invalid month
+            return 0;
     }
 }
-Datum Datum::operator+(int days) const {
-    Datum result(*this);
-    result.dan += days;
-
-    // Handle month and year rollover
-    while (result.dan > daysInMonth(result.mjesec, result.godina)) {
-        result.dan -= daysInMonth(result.mjesec, result.godina);
-        result.mjesec++;
-        if (result.mjesec > 12) {
-            result.mjesec = 1;
-            result.godina++;
+Datum Datum::operator+(int dan) const {
+    Datum rez(*this);
+    rez.dan += dan;
+    
+    while (rez.dan > dani_u_mjesecu(rez.mjesec, rez.godina)) {
+        rez.dan -= dani_u_mjesecu(rez.mjesec, rez.godina);
+        rez.mjesec++;
+        if (rez.mjesec > 12) {
+            rez.mjesec = 1;
+            rez.godina++;
         }
     }
 
-    return result;
+    return rez;
 }
 
-bool Datum::operator>(const Datum& other) const {
-    if (godina > other.godina) return true;
-    if (godina < other.godina) return false;
-    if (mjesec > other.mjesec) return true;
-    if (mjesec < other.mjesec) return false;
-    return dan > other.dan;
+bool Datum::operator>(const Datum& a) const {
+    if (godina > a.godina) return true;
+    if (godina < a.godina) return false;
+    if (mjesec > a.mjesec) return true;
+    if (mjesec < a.mjesec) return false;
+    return dan > a.dan;
 }
