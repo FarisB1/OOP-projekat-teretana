@@ -6,21 +6,26 @@
 #define PROJEKAT_RADNICI_H
 #include "Osoba.h"
 
-class Radnici {
+class Radnici : public Osoba{
 private:
     Osoba radnik;
-    int brKorisnika;
+    std::string sifra;
+
 public:
     Osoba &getRadnik();
     int getBrKorisnika();
+
+    void setSifra();
+    std::string getSifra();
 
     void setRadnik(Osoba &radnik);
     void setRadnik();
     void setBrKorisnika(int brKorisnika);
     void setBrKorisnika();
 
+    void sacuvajUFajl();
 
-
+    void povecajBrKorisika();
 };
 
 

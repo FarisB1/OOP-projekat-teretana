@@ -28,15 +28,15 @@ public:
     void postaviDatum();
     void ispisiDatum();
     std::string ispisiDatum2();
-    int dani_u_mjesecu(int mjesec, int god) const;
+    int daysInMonth(int month, int year) const;
 
 
-    Datum(int dan, int mjesec, int god);
+    Datum(int day, int month, int year);
     Datum();
     ~Datum(){};
 
-    Datum operator+(int dan) const;
-    bool operator>(const Datum& a) const;
+    Datum operator+(int days) const;
+    bool operator>(const Datum& other) const;
 };
 
 

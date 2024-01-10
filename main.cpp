@@ -6,6 +6,7 @@
 #include "Osoba.h"
 #include "Teretana.h"
 
+
 void adminMeni(Teretana &T){
     int izbor;
 
@@ -21,19 +22,23 @@ void adminMeni(Teretana &T){
         std::cout<<"\n1. Stanje teretane\n";
         std::cout<<"2. Stanje radnika\n";
         std::cout<<"3. Clanarine \n";
-        std::cout<<"4. Dodaj radnika";
+        std::cout<<"4. Dodaj radnika\n";
         std::cout<<"5. Nazad\n";
         std::cout<<"Unesite izbor: ";
         std::cin>>izbor;
-
+        std::cin.ignore();
         switch (izbor) {
             case 1:
+                T.stanjeTeretane();
                 break;
             case 2:
                 break;
             case 3:
+                T.ispisiKorisinke();
+                T.provjeriClanarinu();
                 break;
             case 4:
+                T.dodajRadnika();
                 break;
             case 5:
                 std::cout<<"Hvala i dovidjenja\n";
@@ -139,7 +144,9 @@ void radnikMeni(Teretana &T){
         std::cout<<"4. Produzi clanarinu\n";
         std::cout<<"5. Provjeri clanarinu \n";
         std::cout<<"6. Svi korisnici \n";
-        std::cout<<"7. Nazad\n";
+        std::cout<<"7. Zauzeti ormarici\n";
+        std::cout<<"8. Izbrisi korisnika\n";
+        std::cout<<"9. Nazad\n";
         std::cout<<"Unesite izbor: ";
         std::cin>>izbor;
         std::cin.ignore();
@@ -149,6 +156,7 @@ void radnikMeni(Teretana &T){
                 system("Pause");
                 break;
             case 2:
+                T.ispisiKorisinke();
                 T.dajKljuc();
                 system("Pause");
                 break;
@@ -156,16 +164,35 @@ void radnikMeni(Teretana &T){
                 T.uzmiKljuc();
                 system("Pause");
                 break;
+            case 4:
+                T.ispisiKorisinke();
+                T.produziClanarinu();
+                system("Pause");
+                break;
+            case 5:
+                T.ispisiKorisinke();
+                T.provjeriClanarinu();
+                system("Pause");
+                break;
             case 6:
                 T.ispisiKorisinke();
                 system("Pause");
                 break;
             case 7:
+                T.ispisOrmarica();
+                system("Pause");
+                break;
+            case 8:
+                T.ispisiKorisinke();
+                T.izbrisi("korisnici.txt");
+                system("Pause");
+                break;
+            case 9:
                 std::cout<<"Hvala i dovidjenja\n";
                 break;
 
         }
-    }while(izbor != 7);
+    }while(izbor != 9);
 
     system("Pause");
 }
@@ -189,6 +216,9 @@ void korisnikMeni(Teretana &T){
 
         switch (izbor) {
             case 1:
+                T.stanjeTeretane();
+                T.ispisOrmarica();
+                system("Pause");
                 break;
             case 2:
                 std::cout<<"Hvala i dovidjenja\n";

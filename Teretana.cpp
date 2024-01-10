@@ -12,6 +12,7 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
+#include <iterator>
 
 void Teretana::ucitajIzFajla() {
     std::ifstream inputFile("korisnici.txt");
@@ -35,16 +36,19 @@ void Teretana::ucitajIzFajla() {
         std::string broj = words[3];
         std::string pak = words[5];
         
-        int dan1, mjesec1, god1, dan2, mjesec2, god2;
+        int dan1, mjesec1, god1, dan2, mjesec2, god2, dan3, mjesec3, god3;
         char tacka;
         std::istringstream datum1(words[4]);
         datum1 >> dan1 >> tacka >> mjesec1 >> tacka >> god1;
 
         std::istringstream datum2(words[6]);
         datum2 >> dan2 >> tacka >> mjesec2 >> tacka >> god2;
-        // Printing the extracted information
+        std::istringstream datum3(words[8]);
+        datum3 >> dan3 >> tacka >> mjesec3 >> tacka >> god3;
+
         Datum datumRodjenja(dan1, mjesec1, god1);
         Datum datumUclanjivanja(dan2, mjesec2, god2);
+        Datum datumIsteka(dan3,mjesec3,god3);
         int pakett;
 
         if (pak == "Dnevna") {
@@ -65,9 +69,11 @@ void Teretana::ucitajIzFajla() {
         a.setGodine(god);
         a.setBrTelefona(broj);
         a.setDatumRodjenja(datumRodjenja);
+
         Korisnik e;
         e.setKorisnik(a);
         e.setDatum(datumUclanjivanja);
+        e.setDatumIsteka(datumIsteka);
         e.setClanarina(true);
         e.setPaket(static_cast<Paket>(pakett));
         e.setCijena();
@@ -111,13 +117,13 @@ void Teretana::stanjeTeretane() {
 
 void Teretana::dajKljuc() {
     int a;
-    std::cout<<"Unesite ID kartice: ";
-    std::cin>>a;
+    std::cout << "Unesite ID kartice: ";
+    std::cin >> a;
     std::cin.ignore();
     bool pronadjen = false;
-    for(auto &korisnik:this->korisnici){
-        if(a==korisnik.getBrKartice() && !korisnik.JePrisutan()) {
-            if (this->brZauzetih >= brOrmarica){
+    for (auto &korisnik : this->korisnici) {
+        if (a == korisnik.getBrKartice() && !korisnik.JePrisutan()) {
+            if (this->brZauzetih >= brOrmarica) {
                 std::cout << "Svi ormarici su zauzeti.\n";
                 return;
             }
@@ -129,30 +135,29 @@ void Teretana::dajKljuc() {
             rand();
 
             bool ima = false;
-            do{
-                kljuc=rand()%30+1;
-                for (auto &nizKljuceva:kljucevi){
-                    if (kljuc == nizKljuceva)
-                    {
+            do {
+                kljuc = rand() % 30 + 1;
+                for (auto &nizKljuceva : *kljucevi) {
+                    if (kljuc == nizKljuceva) {
                         ima = true;
                         break;
                     }
                 }
-            }while(ima);
+            } while (ima);
 
             korisnik.setKljuc(kljuc);
-            this->kljucevi.push_back(kljuc);
+            this->kljucevi->push_back(kljuc);
         }
     }
-    if (!pronadjen){
-        std::cout<<"ID kartice nije validan.\n";
+    if (!pronadjen) {
+        std::cout << "ID kartice nije validan.\n";
     }
 }
 
 void Teretana::ispisOrmarica() {
     int ormaric[30] = {0};
 
-    for (auto& kljuc : this->kljucevi) {
+    for (auto& kljuc : *kljucevi) {
         if (kljuc >= 1 && kljuc <= 30) {
             ormaric[kljuc - 1] = 1;
         }
@@ -187,8 +192,8 @@ void Teretana::uzmiKljuc() {
     bool pronadjen = false;
     int indeks = -1;
     this->brZauzetih--;
-    for (int i = 0; i < this->kljucevi.size(); i++){
-        if (this->kljucevi[i] == a){
+    for (int i = 0; i < kljucevi->size(); i++){
+        if ((*kljucevi)[i] == a){
             pronadjen = true;
             indeks = i;
             break;
@@ -196,7 +201,7 @@ void Teretana::uzmiKljuc() {
     }
 
     if (pronadjen){
-        this->kljucevi.erase(this->kljucevi.begin() + indeks);
+        this->kljucevi->erase(this->kljucevi->begin() + indeks);
         for(auto &korisnik : this->korisnici)
         {
             if (korisnik.getKljuc() == a)
@@ -219,3 +224,95 @@ void Teretana::dodajKorisnika(){
     this->korisnici.push_back(temp);
     std::cin.ignore();
 }
+
+void Teretana::provjeriClanarinu() {
+    int a;
+    std::cout<<"Unesite ID kartice: ";
+    std::cin>>a;
+    std::cin.ignore();
+    bool validan = false;
+    for (auto &korisnik : this->korisnici){
+        int br = korisnik.getBrKartice();
+        if (a==br){
+            korisnik.provjeriValidnostClanarine();
+            validan = true;
+            break;
+        }
+    }
+    if (!validan){
+        std::cout<<"Unesite validan ID kartice.\n";
+    }
+}
+
+void Teretana::produziClanarinu() {
+    int a;
+    std::cout<<"Unesite ID kartice: ";
+    std::cin>>a;
+    std::cin.ignore();
+    bool validan = false;
+    for (auto &korisnik : this->korisnici){
+        int br = korisnik.getBrKartice();
+        if (a==br){
+            korisnik.produziClanarinu();
+            validan = true;
+            break;
+        }
+    }
+    if (!validan){
+        std::cout<<"Unesite validan ID kartice.\n";
+    }
+}
+
+void Teretana::izbrisi(const std::string& filePath) {
+    std::ifstream inputFile(filePath);
+    std::vector<std::string> lines;
+    std::string userNumber;
+    bool pronadjen = false;
+    int indeks;
+    do{
+        std::cout<<"Unesite ID kartice: ";
+        std::getline(std::cin,userNumber);
+        for (int i = 0; i < this->korisnici.size(); ++i) {
+            if (this->korisnici[i].getBrKartice() == std::stoi(userNumber)) {
+                pronadjen = true;
+                indeks = i;
+                break;
+            }
+        }
+        if (!pronadjen) std::cout<<"Unesite validan ID.";
+    }while(!pronadjen);
+
+    this->korisnici.erase(this->korisnici.begin() + indeks);
+    if (inputFile.is_open()) {
+        std::string line;
+        while (std::getline(inputFile, line)) {
+            std::istringstream iss(line);
+            std::vector<std::string> words(std::istream_iterator<std::string>{iss},
+                                           std::istream_iterator<std::string>());
+
+            if (words.size() >= 2 && words[words.size() - 2] != userNumber) {
+                lines.push_back(line);
+            }
+        }
+        inputFile.close();
+
+        std::ofstream outputFile(filePath);
+        for (const auto& line : lines) {
+            outputFile << line << '\n';
+        }
+        outputFile.close();
+
+        std::cout << "Korisnik sa ID " << userNumber << " je obrisan.\n";
+    } else {
+        std::cerr << "Fajl nije otvoren: " << filePath << "\n";
+    }
+}
+
+void Teretana::dodajRadnika() {
+    Radnici temp;
+    temp.setRadnik();
+    this->radnici.push_back(temp);
+
+    std::cin.ignore();
+}
+
