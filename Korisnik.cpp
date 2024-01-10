@@ -11,6 +11,8 @@
 #include "Korisnik.h"
 #include "Datum.h"
 #include <ctime>
+#include <vector>
+#include <iterator>
 
 Osoba &Korisnik::getKorisnici(){
     return this->korisnik;
@@ -139,6 +141,7 @@ void Korisnik::sacuvajUFajl(){
     }
     outFile << " ";
     outFile<< this->datumUclanjivanja.getDan()<<"."<<this->datumUclanjivanja.getMjesec()<<"."<<this->datumUclanjivanja.getGodina()<<" " << this->getBrKartice();
+    outFile<<" "<<this->datumIsteka.getDan()<<"."<<this->datumIsteka.getMjesec()<<"."<<this->datumIsteka.getGodina();
     outFile << "\n";
 
     outFile.close();
@@ -191,12 +194,52 @@ void Korisnik::provjeriValidnostClanarine() {
     time_t t = time(0);
     struct tm* now = localtime(&t);
     Datum trenutniDatum(now->tm_mday, now->tm_mon + 1, now->tm_year + 1900);
-    datumIsteka.ispisiDatum();std::cout<<"\n";
+    this->datumIsteka.ispisiDatum();std::cout<<"\n";
 
     if (trenutniDatum > this->datumIsteka) {
         std::cout << "Clanarina istekla. Potrebno je produziti clanarinu." << std::endl;
     } else {
         std::cout << "Clanarina je jos uvijek validna." << std::endl;
+    }
+}
+
+void Korisnik::produziClanarinu(){
+    //Uzima vrijednost danasnjeg datuma
+    time_t t = time(0);
+    struct tm* now = localtime(&t);
+    Datum trenutniDatum(now->tm_mday, now->tm_mon + 1, now->tm_year + 1900);
+    this->datumIsteka.ispisiDatum();std::cout<<"\n";
+    this->datumIsteka = this->datumIsteka + 30;
+    izbrisi("korisnici.txt");
+    sacuvajUFajl();
+    std::cout<<"Novi datum isteka: ";
+    this->datumIsteka.ispisiDatum();std::cout<<"\n";
+}
+bool Korisnik::izbrisi(const std::string& filePath) {
+    std::ifstream inputFile(filePath);
+    std::vector<std::string> lines;
+    if (inputFile.is_open()) {
+        std::string line;
+        while (std::getline(inputFile, line)) {
+            std::istringstream iss(line);
+            std::vector<std::string> words(std::istream_iterator<std::string>{iss},
+                                           std::istream_iterator<std::string>());
+
+            if (words.size() >= 2 && stoi(words[words.size() - 2]) != this->brKartice) {
+                lines.push_back(line);
+            }
+        }
+        inputFile.close();
+
+        std::ofstream outputFile(filePath);
+        for (const auto& line : lines) {
+            outputFile << line << '\n';
+        }
+        outputFile.close();
+
+        return true;
+    } else {
+        return false;
     }
 }
 std::ostream& operator<<(std::ostream& stream, Korisnik& p) {
@@ -216,6 +259,9 @@ void Korisnik::setKorisnik(Osoba& osoba){
 }
 void Korisnik::setDatum(Datum& datum){
     this->datumUclanjivanja = datum;
+}
+void Korisnik::setDatumIsteka(Datum& datum){
+    this->datumIsteka = datum;
 }
 void Korisnik::setClanarina(bool clanarina){
     this->clanarina = clanarina;

@@ -8,7 +8,7 @@
 #include "Datum.h"
 enum Paket{dnevna = 1, jutarnja, studentska, mjesecna};
 
-class Korisnik {
+class Korisnik : public Osoba {
 private:
     Osoba korisnik;
     Datum datumUclanjivanja;
@@ -55,6 +55,12 @@ public:
     int getKljuc();
     void setKljuc(int a);
     void removeKljuc();
+
+    void produziClanarinu();
+
+    void setDatumIsteka(Datum &datum);
+
+    bool izbrisi(const std::string &filePath);
 };
 
 
