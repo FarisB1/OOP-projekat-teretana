@@ -1,7 +1,3 @@
-//
-// Created by farex on 12/26/2023.
-//
-
 #include <fstream>
 #include <iostream>
 #include <vector>

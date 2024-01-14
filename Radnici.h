@@ -1,7 +1,3 @@
-//
-// Created by farex on 12/26/2023.
-//
-
 #ifndef PROJEKAT_RADNICI_H
 #define PROJEKAT_RADNICI_H
 #include "Osoba.h"

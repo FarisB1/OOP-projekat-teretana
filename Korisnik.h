@@ -1,7 +1,3 @@
-//
-// Created by farex on 12/26/2023.
-//
-
 #ifndef PROJEKAT_KORISNIK_H
 #define PROJEKAT_KORISNIK_H
 #include "Osoba.h"

@@ -1,7 +1,3 @@
-//
-// Created by farex on 12/26/2023.
-//
-
 #ifndef PROJEKAT_OSOBA_H
 #define PROJEKAT_OSOBA_H
 #include "Datum.h"
