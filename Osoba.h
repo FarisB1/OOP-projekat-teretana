@@ -39,6 +39,8 @@ public:
     void setGodine(int i);
     void setIme(std::string imeTemp);
     void setPrezime(std::string prezimeTemp);
+
+    virtual void izbrisi(const std::string& filePath);
 };
 
 

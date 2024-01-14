@@ -4,6 +4,10 @@
 
 #include <iostream>
 #include <cstring>
+#include <fstream>
+#include <vector>
+#include <sstream>
+#include <iterator>
 #include "Osoba.h"
 #include "Datum.h"
 
@@ -105,5 +109,35 @@ void Osoba::setIme(std::string imeTemp) {
 
 }void Osoba::setPrezime(std::string prezimeTemp) {
     this->prezime = prezimeTemp;
+}
+
+void Osoba::izbrisi(const std::string &filePath) {
+    std::ifstream inputFile(filePath);
+    std::vector<std::string> lines;
+    std::string ime;
+    std::getline(std::cin,ime);
+    if (inputFile.is_open()) {
+        std::string line;
+        while (std::getline(inputFile, line)) {
+            std::istringstream iss(line);
+            std::vector<std::string> words(std::istream_iterator<std::string>{iss},
+                                           std::istream_iterator<std::string>());
+
+            if (words.size() >= 2 && words[words.size() - 2] != ime) {
+                lines.push_back(line);
+            }
+        }
+        inputFile.close();
+
+        std::ofstream outputFile(filePath);
+        for (const auto& line : lines) {
+            outputFile << line << '\n';
+        }
+        outputFile.close();
+
+        std::cout << "Korisnik " << ime << " je obrisan.\n";
+    } else {
+        std::cerr << "Fajl nije otvoren: " << filePath << "\n";
+    }
 }
 
