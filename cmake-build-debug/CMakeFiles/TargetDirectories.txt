@@ -1,3 +1,3 @@
-C:/Users/farex/OneDrive/Desktop/Faris/svefaks/2. GOD/PROJEKAT/cmake-build-debug/CMakeFiles/PROJEKAT.dir
-C:/Users/farex/OneDrive/Desktop/Faris/svefaks/2. GOD/PROJEKAT/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/farex/OneDrive/Desktop/Faris/svefaks/2. GOD/PROJEKAT/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/farex/OneDrive/Desktop/OOP-projekat-teretana-main/cmake-build-debug/CMakeFiles/PROJEKAT.dir
+C:/Users/farex/OneDrive/Desktop/OOP-projekat-teretana-main/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/farex/OneDrive/Desktop/OOP-projekat-teretana-main/cmake-build-debug/CMakeFiles/rebuild_cache.dir

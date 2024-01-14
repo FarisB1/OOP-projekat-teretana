@@ -308,6 +308,7 @@ void Teretana::izbrisi(const std::string& filePath) {
     }
 }
 
+
 void Teretana::dodajRadnika() {
     Radnici temp;
     temp.setRadnik();

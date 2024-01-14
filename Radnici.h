@@ -26,6 +26,7 @@ public:
     void sacuvajUFajl();
 
     void povecajBrKorisika();
+
 };
 
 

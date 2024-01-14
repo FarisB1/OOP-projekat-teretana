@@ -20,32 +20,35 @@ void adminMeni(Teretana &T){
 
 
         std::cout<<"\n1. Stanje teretane\n";
-        std::cout<<"2. Stanje radnika\n";
+        std::cout<<"2. Dodaj radnika\n";
         std::cout<<"3. Clanarine \n";
-        std::cout<<"4. Dodaj radnika\n";
-        std::cout<<"5. Nazad\n";
+        std::cout<<"4. Nazad\n";
         std::cout<<"Unesite izbor: ";
         std::cin>>izbor;
         std::cin.ignore();
         switch (izbor) {
             case 1:
                 T.stanjeTeretane();
+                system("Pause");
                 break;
+
             case 2:
+                T.dodajRadnika();
+                system("Pause");
                 break;
+
             case 3:
                 T.ispisiKorisinke();
                 T.provjeriClanarinu();
+                system("Pause");
                 break;
+
             case 4:
-                T.dodajRadnika();
-                break;
-            case 5:
                 std::cout<<"Hvala i dovidjenja\n";
                 break;
 
         }
-    }while(izbor != 5);
+    }while(izbor != 4);
 
     system("Pause");
 }

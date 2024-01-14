@@ -60,7 +60,6 @@ public:
 
     void setDatumIsteka(Datum &datum);
 
-    bool izbrisi(const std::string &filePath);
 };
 
 

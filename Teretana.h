@@ -11,7 +11,7 @@
 
 const int brOrmarica = 30;
 
-class Teretana {
+class Teretana : Osoba {
 public:
     std::vector<Korisnik> korisnici;
     std::vector<Radnici> radnici;
@@ -35,7 +35,8 @@ public:
 
 
 
-    void izbrisi(const std::string &filePath);
+    void izbrisi(const std::string &filePath) override;
+
 };
 
 #endif //PROJEKAT_TERETANA_H

@@ -215,33 +215,7 @@ void Korisnik::produziClanarinu(){
     std::cout<<"Novi datum isteka: ";
     this->datumIsteka.ispisiDatum();std::cout<<"\n";
 }
-bool Korisnik::izbrisi(const std::string& filePath) {
-    std::ifstream inputFile(filePath);
-    std::vector<std::string> lines;
-    if (inputFile.is_open()) {
-        std::string line;
-        while (std::getline(inputFile, line)) {
-            std::istringstream iss(line);
-            std::vector<std::string> words(std::istream_iterator<std::string>{iss},
-                                           std::istream_iterator<std::string>());
 
-            if (words.size() >= 2 && stoi(words[words.size() - 2]) != this->brKartice) {
-                lines.push_back(line);
-            }
-        }
-        inputFile.close();
-
-        std::ofstream outputFile(filePath);
-        for (const auto& line : lines) {
-            outputFile << line << '\n';
-        }
-        outputFile.close();
-
-        return true;
-    } else {
-        return false;
-    }
-}
 std::ostream& operator<<(std::ostream& stream, Korisnik& p) {
     stream << "| " << std::left << std::setw(15) << p.korisnik.getIme() << " | " << std::setw(15) << p.korisnik.getPrezime() << " | "
            << std::setw(5) << p.korisnik.getGodine() << " | " << std::setw(15) << p.korisnik.getBrTelefona() << " | "

@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Users/farex/OneDrive/Desktop/Faris/svefaks/2.$ GOD/PROJEKAT/cmake-build-debug/
+cmake_ninja_workdir = C$:/Users/farex/OneDrive/Desktop/OOP-projekat-teretana-main/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target PROJEKAT
 
@@ -49,37 +49,37 @@ cmake_ninja_workdir = C$:/Users/farex/OneDrive/Desktop/Faris/svefaks/2.$ GOD/PRO
 
 build cmake_object_order_depends_target_PROJEKAT: phony || CMakeFiles/PROJEKAT.dir
 
-build CMakeFiles/PROJEKAT.dir/main.cpp.obj: CXX_COMPILER__PROJEKAT_unscanned_Debug C$:/Users/farex/OneDrive/Desktop/Faris/svefaks/2.$ GOD/PROJEKAT/main.cpp || cmake_object_order_depends_target_PROJEKAT
+build CMakeFiles/PROJEKAT.dir/main.cpp.obj: CXX_COMPILER__PROJEKAT_unscanned_Debug C$:/Users/farex/OneDrive/Desktop/OOP-projekat-teretana-main/main.cpp || cmake_object_order_depends_target_PROJEKAT
   DEP_FILE = CMakeFiles\PROJEKAT.dir\main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\PROJEKAT.dir
   OBJECT_FILE_DIR = CMakeFiles\PROJEKAT.dir
 
-build CMakeFiles/PROJEKAT.dir/Korisnik.cpp.obj: CXX_COMPILER__PROJEKAT_unscanned_Debug C$:/Users/farex/OneDrive/Desktop/Faris/svefaks/2.$ GOD/PROJEKAT/Korisnik.cpp || cmake_object_order_depends_target_PROJEKAT
+build CMakeFiles/PROJEKAT.dir/Korisnik.cpp.obj: CXX_COMPILER__PROJEKAT_unscanned_Debug C$:/Users/farex/OneDrive/Desktop/OOP-projekat-teretana-main/Korisnik.cpp || cmake_object_order_depends_target_PROJEKAT
   DEP_FILE = CMakeFiles\PROJEKAT.dir\Korisnik.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\PROJEKAT.dir
   OBJECT_FILE_DIR = CMakeFiles\PROJEKAT.dir
 
-build CMakeFiles/PROJEKAT.dir/Radnici.cpp.obj: CXX_COMPILER__PROJEKAT_unscanned_Debug C$:/Users/farex/OneDrive/Desktop/Faris/svefaks/2.$ GOD/PROJEKAT/Radnici.cpp || cmake_object_order_depends_target_PROJEKAT
+build CMakeFiles/PROJEKAT.dir/Radnici.cpp.obj: CXX_COMPILER__PROJEKAT_unscanned_Debug C$:/Users/farex/OneDrive/Desktop/OOP-projekat-teretana-main/Radnici.cpp || cmake_object_order_depends_target_PROJEKAT
   DEP_FILE = CMakeFiles\PROJEKAT.dir\Radnici.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\PROJEKAT.dir
   OBJECT_FILE_DIR = CMakeFiles\PROJEKAT.dir
 
-build CMakeFiles/PROJEKAT.dir/Teretana.cpp.obj: CXX_COMPILER__PROJEKAT_unscanned_Debug C$:/Users/farex/OneDrive/Desktop/Faris/svefaks/2.$ GOD/PROJEKAT/Teretana.cpp || cmake_object_order_depends_target_PROJEKAT
+build CMakeFiles/PROJEKAT.dir/Teretana.cpp.obj: CXX_COMPILER__PROJEKAT_unscanned_Debug C$:/Users/farex/OneDrive/Desktop/OOP-projekat-teretana-main/Teretana.cpp || cmake_object_order_depends_target_PROJEKAT
   DEP_FILE = CMakeFiles\PROJEKAT.dir\Teretana.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\PROJEKAT.dir
   OBJECT_FILE_DIR = CMakeFiles\PROJEKAT.dir
 
-build CMakeFiles/PROJEKAT.dir/Datum.cpp.obj: CXX_COMPILER__PROJEKAT_unscanned_Debug C$:/Users/farex/OneDrive/Desktop/Faris/svefaks/2.$ GOD/PROJEKAT/Datum.cpp || cmake_object_order_depends_target_PROJEKAT
+build CMakeFiles/PROJEKAT.dir/Datum.cpp.obj: CXX_COMPILER__PROJEKAT_unscanned_Debug C$:/Users/farex/OneDrive/Desktop/OOP-projekat-teretana-main/Datum.cpp || cmake_object_order_depends_target_PROJEKAT
   DEP_FILE = CMakeFiles\PROJEKAT.dir\Datum.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\PROJEKAT.dir
   OBJECT_FILE_DIR = CMakeFiles\PROJEKAT.dir
 
-build CMakeFiles/PROJEKAT.dir/Osoba.cpp.obj: CXX_COMPILER__PROJEKAT_unscanned_Debug C$:/Users/farex/OneDrive/Desktop/Faris/svefaks/2.$ GOD/PROJEKAT/Osoba.cpp || cmake_object_order_depends_target_PROJEKAT
+build CMakeFiles/PROJEKAT.dir/Osoba.cpp.obj: CXX_COMPILER__PROJEKAT_unscanned_Debug C$:/Users/farex/OneDrive/Desktop/OOP-projekat-teretana-main/Osoba.cpp || cmake_object_order_depends_target_PROJEKAT
   DEP_FILE = CMakeFiles\PROJEKAT.dir\Osoba.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\PROJEKAT.dir
@@ -108,7 +108,7 @@ build PROJEKAT.exe: CXX_EXECUTABLE_LINKER__PROJEKAT_Debug CMakeFiles/PROJEKAT.di
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\farex\OneDrive\Desktop\Faris\svefaks\2. GOD\PROJEKAT\cmake-build-debug" && "E:\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\Users\farex\OneDrive\Desktop\OOP-projekat-teretana-main\cmake-build-debug && "E:\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -119,7 +119,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\farex\OneDrive\Desktop\Faris\svefaks\2. GOD\PROJEKAT\cmake-build-debug" && "E:\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -S"C:\Users\farex\OneDrive\Desktop\Faris\svefaks\2. GOD\PROJEKAT" -B"C:\Users\farex\OneDrive\Desktop\Faris\svefaks\2. GOD\PROJEKAT\cmake-build-debug""
+  COMMAND = cmd.exe /C "cd /D C:\Users\farex\OneDrive\Desktop\OOP-projekat-teretana-main\cmake-build-debug && "E:\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\farex\OneDrive\Desktop\OOP-projekat-teretana-main -BC:\Users\farex\OneDrive\Desktop\OOP-projekat-teretana-main\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -137,7 +137,7 @@ build PROJEKAT: phony PROJEKAT.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/farex/OneDrive/Desktop/Faris/svefaks/2. GOD/PROJEKAT/cmake-build-debug
+# Folder: C:/Users/farex/OneDrive/Desktop/OOP-projekat-teretana-main/cmake-build-debug
 
 build all: phony PROJEKAT.exe
 
@@ -148,14 +148,14 @@ build all: phony PROJEKAT.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Users/farex/OneDrive/Desktop/Faris/svefaks/2.$ GOD/PROJEKAT/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake
+build build.ninja: RERUN_CMAKE | C$:/Users/farex/OneDrive/Desktop/OOP-projekat-teretana-main/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Users/farex/OneDrive/Desktop/Faris/svefaks/2.$ GOD/PROJEKAT/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake: phony
+build C$:/Users/farex/OneDrive/Desktop/OOP-projekat-teretana-main/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake E$:/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake: phony
 
 
 #############################################
